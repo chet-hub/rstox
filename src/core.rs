@@ -1063,6 +1063,40 @@ impl Tox {
         }
     }
 
+    pub fn send_lossy_packet(
+        &mut self,
+        friend: u32,
+        data: &[u8]
+    ) -> Result<(),FriendCustomPacketError> {
+        unsafe {
+            tox_try!(err, ll::tox_friend_send_lossy_packet(
+                self.raw,
+                friend,
+                data.as_ptr(),
+                data.len(),
+                err.as_mut_ptr()
+            ));
+            Ok(())
+        }
+    }
+
+    pub fn send_lossless_packet(
+        &mut self,
+        friend: u32,
+        data: &[u8]
+    ) -> Result<(),FriendCustomPacketError> {
+        unsafe {
+            tox_try!(err, ll::tox_friend_send_lossless_packet(
+                self.raw,
+                friend,
+                data.as_ptr(),
+                data.len(),
+                err.as_mut_ptr()
+            ));
+            Ok(())
+        }
+    }
+
     // Conference stuff
 
     pub fn new_conference(&mut self) -> Result<u32, ()> {

@@ -12,7 +12,7 @@ To use `rstox` in your project, add to your `Cargo.toml`:
 [dependencies.rstox]
 git = "https://github.com/tox-rs/rstox.git"
 ```
-and make something - [example](/examples/test.rs)
+and make something - [example](/examples/client1)
 
 Toxcore [API documentation](https://github.com/TokTok/c-toxcore/blob/master/toxcore/tox.h)
 
